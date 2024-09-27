@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Chai</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main container that holds the entire chai cup & plate structure -->
+      <div class="plate"></div>
+      <!-- Cup container that includes the chai steam & cup handle -->
+      <div class="cup">
+        <div class="top">
+          <!-- Steam effect created by using multiple span elemnts with custom properties for animation -->
+          <div class="steam">
+            <!-- Each span represent an individual steam trail, customized with the --c variable to adjust animation timing & position -->
+            <span style="--c: 1"></span>
+            <span style="--c: 3"></span>
+            <span style="--c: 4"></span>
+            <span style="--c: 16"></span>
+            <span style="--c: 5"></span>
+            <span style="--c: 7"></span>
+            <span style="--c: 15"></span>
+            <span style="--c: 8"></span>
+            <span style="--c: 19"></span>
+            <span style="--c: 9"></span>
+            <span style="--c: 17"></span>
+            <span style="--c: 10"></span>
+            <span style="--c: 11"></span>
+            <span style="--c: 6"></span>
+            <span style="--c: 12"></span>
+            <span style="--c: 2"></span>
+            <span style="--c: 13"></span>
+            <span style="--c: 18"></span>
+            <span style="--c: 14"></span>
+            <span style="--c: 20"></span>
+          </div>
+
+          <!-- It's a cup surface where the chai liquid appears -->
+          <div class="circle">
+            <div class="chai"></div>
+          </div>
+        </div>
+        <!-- Cup handle for visual completness -->
+        <div class="cup-handle"></div>
+      </div>
+    </div>
+  </body>
+</html>
