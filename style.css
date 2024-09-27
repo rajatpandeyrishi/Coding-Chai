@@ -1,0 +1,163 @@
+/* Global reset to remove default margin, padding and box-sizing from all elements */
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+/* body styling; centering the content vertically & horizontally with a light background */
+body {
+  background-color: #c2dab8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* this a container for the chai cup,i adjusted slightly below the center for the visual balance */
+.container {
+  position: relative;
+  top: 50px;
+}
+
+/* main structure of the chai cup */
+.cup {
+  position: relative;
+  width: 280px;
+  height: 300px;
+  background: linear-gradient(to right, #ffffff, #c0bebe);
+  border-radius: 0% 0% 45% 45%;
+  /* border: 1.2px solid; */
+}
+
+/* top of the cup to represent the rim */
+.top {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to right, #f6f6f6, #ece7e7);
+  border-radius: 50%;
+  /* border: 1.5px solid; */
+}
+
+/* circle inside the cup representing the liquid surface */
+.circle {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 50px;
+  /* border: 1px solid; */
+  background: linear-gradient(to left, #f6f6f6, #ddd6d6);
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* it represnt the chai inside the cup */
+.chai {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#ecb97a, #b77729);
+  border-radius: 50%;
+}
+
+/* handle of the cup with a roated ellipse shape */
+.cup-handle {
+  position: absolute;
+  border: 20px solid black;
+  right: -70px;
+  top: 40px;
+  width: 150px;
+  height: 180px;
+  border: 25px solid #c0bebe;
+  border-left: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-radius: 50%;
+  transform: rotate(40deg);
+}
+
+/* styling a plate under the cup with the elliptical shape & shadow effect*/
+.plate {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 200px;
+  background: linear-gradient(to right, #d6cfcf, #f1eded);
+  border-radius: 50%;
+  box-shadow: 0 35px 35px rgb(0, 0, 0, 0.5);
+}
+
+/* styling a inner detail for the plate to create a layered effects */
+.plate::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to left, #fcf9f9, #e9e5e5);
+}
+
+/* radial-gradient to simulate reflection on the plate */
+.plate::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  background: radial-gradient(rgba(0, 0, 0, 0.2) 25%, transparent, transparent);
+  border-radius: 50%;
+}
+
+/* container for steam animation */
+.steam {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+/* Indiviual steam trails by using span elements */
+.steam span {
+  position: relative;
+  display: block;
+  min-width: 8px;
+  height: 140px;
+  background-color: white;
+  margin: 0 2px 50px;
+  bottom: 40px;
+  animation: animate 5s linear infinite;  /*continous run steam animation*/
+  opacity: 0;
+  filter: blur(8px); /*blur effect for a soft steam appearance*/
+  animation-delay: calc(var(--c) * -0.5s); /* offset animation for varying steam trails*/
+}
+
+/* this keyframe animation to simulate rising steam with scaling effect */
+@keyframes animate {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-150px) scaleX(5);
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-300px) scaleX(10);
+  }
+}
